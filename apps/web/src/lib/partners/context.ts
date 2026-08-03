@@ -17,9 +17,9 @@ export interface ActivePartner {
   youtube: string | null
 }
 
-// Domínios raiz aceitos (o site vive em kickoffstore.com.br e migrará para
-// clubedaestampa.com.br — ambos precisam resolver os subdomínios de parceiro).
-const ROOT_DOMAINS = ['kickoffstore.com.br', 'clubedaestampa.com.br']
+// Domínios raiz aceitos (o site vive em clubedaestampa.com.br; kickoffstore.com.br
+// segue aceito em paralelo — ambos precisam resolver os subdomínios de parceiro).
+const ROOT_DOMAINS = ['clubedaestampa.com.br', 'kickoffstore.com.br']
 const RESERVED = new Set(['www', 'admin', 'app', 'api', 'loja'])
 
 /** Extrai o slug do parceiro a partir do host (subdomínio). Null = loja principal. */
