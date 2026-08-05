@@ -195,3 +195,38 @@ export async function getProductBySlug(slug: string): Promise<ProductDetail | nu
       .map((i) => ({ path: i.storage_path, alt: i.alt_text, isPrimary: i.is_primary })),
   }
 }
+
+/** Categoria pública pelo slug (para páginas de coleção). */
+export async function getCategoryBySlug(
+  slug: string,
+): Promise<{ id: string; name: string; description: string | null } | null> {
+  const supabase = createClient()
+  const { data } = await supabase
+    .from('categories')
+    .select('id, name, description')
+    .eq('slug', slug)
+    .eq('active', true)
+    .maybeSingle()
+  return (data as { id: string; name: string; description: string | null } | null) ?? null
+}
+
+/** Produtos ativos de uma coleção (categoria), respeitando a vitrine atual (loja principal ou parceiro). */
+export async function listCategoryProducts(categoryId: string, limit = 60): Promise<ProductSummary[]> {
+  const supabase = createClient()
+  const partner = await getActivePartner()
+  let query = supabase
+    .from('products')
+    .select(PRODUCT_SELECT)
+    .eq('status', 'active')
+    .eq('primary_category_id', categoryId)
+  if (partner) {
+    const shared = await partnerSharedProductIds(partner.id)
+    const orParts = [`partner_id.eq.${partner.id}`]
+    if (shared.length > 0) orParts.push(`id.in.(${shared.join(',')})`)
+    query = query.or(orParts.join(','))
+  } else {
+    query = query.eq('show_in_main', true)
+  }
+  const { data } = await query.order('published_at', { ascending: false }).limit(limit)
+  return ((data ?? []) as unknown as RawProduct[]).map(toSummary)
+}

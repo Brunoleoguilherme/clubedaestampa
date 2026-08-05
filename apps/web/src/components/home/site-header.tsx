@@ -9,6 +9,7 @@ import { useCart } from '@/components/cart/cart-context'
 import { useBrand } from '@/components/partners/brand-context'
 
 const NAV_EXTRA = [
+  { name: 'Wolves de BH Street', href: '/colecao/wolves-de-bh-street' },
   { name: 'Marcas', href: '/produtos' },
   { name: 'Outlet', href: '/produtos' },
 ]
