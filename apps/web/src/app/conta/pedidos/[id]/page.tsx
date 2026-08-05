@@ -119,7 +119,7 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
     <div className="space-y-6">
       <Link
         href="/conta/pedidos"
-        className="inline-flex items-center gap-2 text-sm text-night-600 transition-colors hover:text-brand-400"
+        className="inline-flex items-center gap-2 text-sm text-night-600 transition-colors hover:text-accent"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden /> Voltar aos pedidos
       </Link>
@@ -128,7 +128,7 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
         <h1 className="font-display text-2xl font-extrabold uppercase tracking-tight">
           Pedido {order.order_number}
         </h1>
-        <span className="rounded-full bg-brand-500/15 px-3 py-1 text-xs font-semibold text-brand-400">
+        <span className="rounded-full bg-brand-500/15 px-3 py-1 text-xs font-semibold text-brand-600">
           {label(order.status)}
         </span>
       </div>
@@ -146,7 +146,7 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
             </p>
             <p>
               Código:{' '}
-              <strong className="font-mono text-brand-400">{shipment.tracking_code}</strong>
+              <strong className="font-mono text-brand-600">{shipment.tracking_code}</strong>
             </p>
             {shipment.delivered_at ? (
               <p className="text-success">Entregue em {dt(shipment.delivered_at)}</p>
@@ -216,7 +216,7 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
           </div>
           <div className="flex justify-between border-t border-night-100 pt-2 text-base font-bold text-night-900">
             <dt>Total</dt>
-            <dd className="text-brand-400">{formatBRL(order.total_cents)}</dd>
+            <dd className="text-brand-600">{formatBRL(order.total_cents)}</dd>
           </div>
         </dl>
       </section>

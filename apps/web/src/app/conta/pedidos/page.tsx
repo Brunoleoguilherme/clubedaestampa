@@ -119,7 +119,7 @@ export default async function MeusPedidosPage({
                 return (
                   <tr key={o.id} className="border-t border-night-100">
                     <td className="px-4 py-3 font-medium">
-                      <Link href={`/conta/pedidos/${o.id}`} className="text-brand-400 hover:underline">
+                      <Link href={`/conta/pedidos/${o.id}`} className="text-brand-600 hover:underline">
                         {o.order_number}
                       </Link>
                     </td>

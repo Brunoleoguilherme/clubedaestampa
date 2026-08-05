@@ -27,7 +27,7 @@ export function ProductSection({ id, label, title, description, products, badge,
     >
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-md">
-          <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-accent">{label}</span>
+          <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-700">{label}</span>
           <h2 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight text-night-900">
             {title}
           </h2>
@@ -35,7 +35,7 @@ export function ProductSection({ id, label, title, description, products, badge,
         </div>
         <Link
           href="/produtos"
-          className="group inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-accent transition-colors hover:text-brand-700"
+          className="group inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-brand-700 transition-colors hover:text-brand-800"
         >
           Ver todos
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />

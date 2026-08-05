@@ -37,18 +37,18 @@ export default async function PartnerPanelPage() {
     .maybeSingle()
   const partner = data as unknown as PartnerRow | null
   if (!partner) {
-    return <div className="mx-auto max-w-2xl p-8">Loja não encontrada. Fale com o Clube da Estampa.</div>
+    return <div className="mx-auto max-w-2xl p-8 text-night-900">Loja não encontrada. Fale com o Clube da Estampa.</div>
   }
 
-  const primary = partner.primary_color ?? '#1e3a8a'
-  const accent = partner.accent_color ?? '#f59e0b'
+  const primary = partner.primary_color ?? '#2b8df6'
+  const accent = partner.accent_color ?? '#fcca07'
   const storeUrl = `https://${partner.slug}.clubedaestampa.com.br`
 
   return (
-    <div className="mx-auto max-w-4xl space-y-8 px-6 py-10">
+    <div className="mx-auto max-w-4xl space-y-8 px-6 py-10 text-night-900">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold">Minha loja</h1>
+          <h1 className="font-display text-2xl font-extrabold uppercase tracking-tight">Minha loja</h1>
           <p className="text-sm text-night-500">
             {partner.active ? (
               <a href={storeUrl} target="_blank" rel="noopener noreferrer" className="text-brand-600 hover:underline">
@@ -62,14 +62,14 @@ export default async function PartnerPanelPage() {
           </p>
         </div>
         <form action={partnerSignOutAction}>
-          <button className="rounded-md border border-night-200 px-4 py-2 text-sm text-night-600 hover:bg-night-50">
+          <button className="rounded-lg border-2 border-night-200 px-4 py-2 text-sm font-semibold text-night-700 transition-colors hover:border-night-900">
             Sair
           </button>
         </form>
       </div>
 
-      {/* Prévia */}
-      <section className="overflow-hidden rounded-2xl border border-night-100">
+      {/* Prévia da loja do parceiro (usa as cores do parceiro) */}
+      <section className="overflow-hidden rounded-2xl border-2 border-night-900">
         <div
           className="flex items-center justify-center gap-3 px-4 py-3 text-sm font-bold"
           style={{ background: primary, color: accent }}
@@ -80,13 +80,16 @@ export default async function PartnerPanelPage() {
           ) : null}
           <span>Loja oficial · {partner.name}</span>
         </div>
-        <div className="bg-white px-6 py-8 text-night-900">
-          <h2 className="text-xl font-extrabold" style={{ color: '#fff' }}>
+        <div className="px-6 py-10" style={{ background: primary }}>
+          <h2
+            className="font-display text-2xl font-extrabold uppercase tracking-tight text-white"
+            style={{ textShadow: '0 1px 4px rgba(17,17,20,0.4)' }}
+          >
             {partner.tagline || 'Vista as cores do time.'}
           </h2>
           <span
-            className="mt-3 inline-block rounded-lg px-5 py-2 text-sm font-bold"
-            style={{ background: accent, color: '#111' }}
+            className="mt-3 inline-block rounded-lg border-2 border-night-900 px-5 py-2 text-sm font-bold"
+            style={{ background: accent, color: '#111114' }}
           >
             Ver coleção
           </span>
@@ -94,7 +97,7 @@ export default async function PartnerPanelPage() {
       </section>
 
       <div className="grid gap-8 lg:grid-cols-2">
-        <section className="rounded-2xl border border-night-100 p-6">
+        <section className="rounded-2xl border-2 border-night-100 p-6">
           <h2 className="mb-4 font-semibold">Personalização</h2>
           <CustomizeForm
             initial={{
@@ -111,12 +114,12 @@ export default async function PartnerPanelPage() {
         </section>
 
         <div className="space-y-8">
-          <section className="rounded-2xl border border-night-100 p-6">
+          <section className="rounded-2xl border-2 border-night-100 p-6">
             <h2 className="mb-4 font-semibold">Logo</h2>
             <LogoForm currentLogo={partner.logo_url} />
           </section>
 
-          <section className="rounded-2xl border border-night-100 p-6">
+          <section className="rounded-2xl border-2 border-night-100 p-6">
             <h2 className="mb-4 font-semibold">Banner do topo</h2>
             <BannerForm currentBanner={partner.banner_url} />
           </section>

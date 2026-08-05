@@ -24,16 +24,16 @@ export default async function ContaLayout({ children }: { children: React.ReactN
         </header>
         <div className="grid gap-8 md:grid-cols-[200px_1fr]">
           <nav className="flex flex-col gap-1 text-sm">
-            <Link href="/conta" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-brand-400">
+            <Link href="/conta" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-accent">
               Visão geral
             </Link>
-            <Link href="/conta/pedidos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-brand-400">
+            <Link href="/conta/pedidos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-accent">
               Pedidos
             </Link>
-            <Link href="/conta/enderecos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-brand-400">
+            <Link href="/conta/enderecos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-accent">
               Endereços
             </Link>
-            <Link href="/conta/favoritos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-brand-400">
+            <Link href="/conta/favoritos" className="rounded-md px-3 py-2 text-night-700 transition-colors hover:bg-night-50 hover:text-accent">
               Favoritos
             </Link>
           </nav>

@@ -18,7 +18,7 @@ export function SportsGrid() {
   return (
     <section className="accent-yellow mx-auto max-w-[1440px] px-6 py-16 sm:px-8">
       <div className="mb-8">
-        <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-accent">Explore</span>
+        <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-brand-700">Explore</span>
         <h2 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight text-night-900">
           Compre por coleção
         </h2>

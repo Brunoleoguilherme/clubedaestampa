@@ -23,7 +23,10 @@ export function HeroSection() {
             <br /> você curte
           </h1>
 
-          <p className="kof-fade-up kof-d3 mx-auto mt-6 max-w-lg text-base font-medium text-white sm:text-lg">
+          <p
+            className="kof-fade-up kof-d3 mx-auto mt-6 max-w-md text-base font-medium text-white sm:text-lg"
+            style={{ textShadow: '0 1px 6px rgba(17,17,20,0.55)' }}
+          >
             Coleções que falam a sua língua — do esporte à cultura pop.
             Qualidade premium e entrega para todo o Brasil.
           </p>

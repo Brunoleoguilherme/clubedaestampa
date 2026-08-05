@@ -257,7 +257,7 @@ export default function CheckoutPage() {
         {/* Resultado Pix */}
         {pix && (
           <div className="mt-10 rounded-2xl border border-brand-500/30 bg-white p-6 sm:p-8">
-            <div className="flex items-center gap-2 text-brand-400">
+            <div className="flex items-center gap-2 text-brand-600">
               <QrCode className="h-5 w-5" aria-hidden />
               <h2 className="font-display text-xl font-bold uppercase">Pague com Pix</h2>
             </div>
@@ -289,7 +289,7 @@ export default function CheckoutPage() {
             <p className="mt-6 text-sm text-night-600">
               Assim que o pagamento for confirmado, o pedido é atualizado automaticamente. Você pode
               acompanhar em{' '}
-              <Link href="/conta/pedidos" className="text-brand-400 hover:underline">
+              <Link href="/conta/pedidos" className="text-brand-600 hover:underline">
                 Meus pedidos
               </Link>
               .
@@ -390,7 +390,7 @@ export default function CheckoutPage() {
                       type="button"
                       onClick={calcularFrete}
                       disabled={shipLoading}
-                      className="inline-flex h-10 items-center gap-2 rounded-lg border border-brand-500/50 px-4 text-sm font-semibold text-brand-300 transition-colors hover:bg-brand-500/10 disabled:opacity-60"
+                      className="inline-flex h-10 items-center gap-2 rounded-lg border border-brand-500/50 px-4 text-sm font-semibold text-brand-600 transition-colors hover:bg-brand-500/10 disabled:opacity-60"
                     >
                       {shipLoading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
                       {shipLoading ? 'Calculando…' : 'Calcular frete'}
@@ -445,7 +445,7 @@ export default function CheckoutPage() {
                       method === 'pix' ? 'border-brand-500 bg-brand-500/10' : 'border-night-200 hover:border-night-900'
                     }`}
                   >
-                    <QrCode className="h-6 w-6 text-brand-400" aria-hidden />
+                    <QrCode className="h-6 w-6 text-brand-600" aria-hidden />
                     <span>
                       <span className="block font-semibold">Pix</span>
                       <span className="block text-xs text-night-600">Aprovação na hora</span>
@@ -458,7 +458,7 @@ export default function CheckoutPage() {
                       method === 'card' ? 'border-brand-500 bg-brand-500/10' : 'border-night-200 hover:border-night-900'
                     }`}
                   >
-                    <CreditCard className="h-6 w-6 text-brand-400" aria-hidden />
+                    <CreditCard className="h-6 w-6 text-brand-600" aria-hidden />
                     <span>
                       <span className="block font-semibold">Cartão de crédito</span>
                       <span className="block text-xs text-night-600">Parcele em até 10x</span>
@@ -500,7 +500,7 @@ export default function CheckoutPage() {
                     type="button"
                     onClick={aplicarCupom}
                     disabled={couponLoading || !couponInput.trim()}
-                    className="inline-flex h-12 shrink-0 items-center rounded-lg border border-brand-500/50 px-4 text-sm font-semibold text-brand-300 transition-colors hover:bg-brand-500/10 disabled:opacity-60 sm:h-11"
+                    className="inline-flex h-12 shrink-0 items-center rounded-lg border border-brand-500/50 px-4 text-sm font-semibold text-brand-600 transition-colors hover:bg-brand-500/10 disabled:opacity-60 sm:h-11"
                   >
                     {couponLoading ? '...' : 'Aplicar'}
                   </button>

@@ -51,7 +51,10 @@ export function PartnerHero({
             {tagline || `Vista as cores do ${name}`}
           </h1>
           <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center">
-            <p className="max-w-md text-base font-medium text-white sm:text-lg">
+            <p
+              className="max-w-md text-base font-medium text-white sm:text-lg"
+              style={{ textShadow: '0 1px 6px rgba(17,17,20,0.55)' }}
+            >
               Produtos oficiais e coleção do time, com entrega para todo o Brasil.
             </p>
             <Link

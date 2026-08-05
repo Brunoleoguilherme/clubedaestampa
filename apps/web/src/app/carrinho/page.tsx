@@ -58,7 +58,7 @@ export default function CarrinhoPage() {
                       <div>
                         <Link
                           href={`/produtos/${line.slug}`}
-                          className="font-semibold text-night-900 transition-colors hover:text-brand-400"
+                          className="font-semibold text-night-900 transition-colors hover:text-accent"
                         >
                           {line.name}
                         </Link>
