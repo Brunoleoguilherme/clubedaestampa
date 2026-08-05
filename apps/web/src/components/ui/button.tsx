@@ -3,14 +3,17 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-semibold uppercase tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-extrabold uppercase tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-night-900 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        primary: 'bg-brand-500 text-night-900 hover:bg-brand-400',
-        outline: 'border border-night-200 bg-transparent hover:bg-night-50',
-        ghost: 'hover:bg-night-50',
-        onDark: 'border border-white/15 bg-white/5 text-white hover:bg-white/10',
+        primary: 'border-2 border-night-900 bg-accent text-white hover:-translate-y-0.5 hover:bg-brand-600',
+        pink: 'border-2 border-night-900 bg-pink-500 text-white hover:-translate-y-0.5 hover:bg-pink-600',
+        blue: 'border-2 border-night-900 bg-blue-500 text-white hover:-translate-y-0.5 hover:bg-blue-600',
+        yellow: 'border-2 border-night-900 bg-yellow-400 text-night-900 hover:-translate-y-0.5 hover:bg-yellow-500',
+        outline: 'border-2 border-night-900 bg-white text-night-900 hover:bg-night-50',
+        ghost: 'text-night-900 hover:bg-night-50',
+        onDark: 'border-2 border-white/25 bg-white/10 text-white hover:bg-white/20',
       },
       size: {
         sm: 'h-9 px-3',

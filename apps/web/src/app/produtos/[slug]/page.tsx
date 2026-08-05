@@ -42,14 +42,14 @@ export default async function ProdutoPage({ params }: Props) {
   }))
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-night-900 text-white">
+    <div className="min-h-dvh overflow-x-hidden bg-white text-night-900">
       <AnnouncementBar />
       <SiteHeader />
 
       <main className="mx-auto max-w-[1200px] px-6 pb-28 pt-28 sm:px-8 lg:pb-20">
         <Link
           href="/produtos"
-          className="inline-flex items-center gap-2 text-sm text-night-300 transition-colors hover:text-brand-500"
+          className="inline-flex items-center gap-2 text-sm text-night-600 transition-colors hover:text-brand-500"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden /> Voltar ao catálogo
         </Link>
@@ -57,12 +57,12 @@ export default async function ProdutoPage({ params }: Props) {
         <div className="mt-6 grid gap-10 lg:grid-cols-2">
           {/* galeria */}
           <div>
-            <div className="aspect-square overflow-hidden rounded-2xl border border-white/10 bg-surface">
+            <div className="aspect-square overflow-hidden rounded-2xl border border-night-100 bg-white">
               {cover ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={cover} alt={product.imageAlt ?? product.name} className="h-full w-full object-cover" />
               ) : (
-                <div className="flex h-full items-center justify-center text-night-400">Sem imagem</div>
+                <div className="flex h-full items-center justify-center text-night-500">Sem imagem</div>
               )}
             </div>
             {images.length > 1 && (
@@ -70,7 +70,7 @@ export default async function ProdutoPage({ params }: Props) {
                 {images.slice(0, 4).map((im, i) => {
                   const u = productImageUrl(im.path)
                   return (
-                    <div key={i} className="h-20 w-20 overflow-hidden rounded-lg border border-white/10 bg-surface">
+                    <div key={i} className="h-20 w-20 overflow-hidden rounded-lg border border-night-100 bg-white">
                       {u && (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img src={u} alt={im.alt} className="h-full w-full object-cover" />
@@ -85,7 +85,7 @@ export default async function ProdutoPage({ params }: Props) {
           {/* info */}
           <div>
             {product.brandName && (
-              <span className="text-sm font-medium uppercase tracking-wide text-night-300">
+              <span className="text-sm font-medium uppercase tracking-wide text-night-600">
                 {product.brandName}
               </span>
             )}
@@ -96,13 +96,13 @@ export default async function ProdutoPage({ params }: Props) {
             <div className="mt-5 flex items-baseline gap-3">
               <span className="text-3xl font-bold text-brand-500">{formatBRL(priceFrom)}</span>
               {compareAt && compareAt > priceFrom && (
-                <span className="text-lg text-night-400 line-through">{formatBRL(compareAt)}</span>
+                <span className="text-lg text-night-500 line-through">{formatBRL(compareAt)}</span>
               )}
             </div>
-            <p className="mt-1 text-sm text-night-300">{formatInstallments(priceFrom, 10)}</p>
+            <p className="mt-1 text-sm text-night-600">{formatInstallments(priceFrom, 10)}</p>
 
             {product.shortDescription && (
-              <p className="mt-5 text-night-200">{product.shortDescription}</p>
+              <p className="mt-5 text-night-700">{product.shortDescription}</p>
             )}
 
             <TrackViewItem id={product.id} name={product.name} priceCents={priceFrom} />
@@ -115,9 +115,9 @@ export default async function ProdutoPage({ params }: Props) {
             />
 
             {product.description && (
-              <div className="mt-10 border-t border-white/10 pt-6">
-                <h2 className="mb-2 font-semibold text-white">Descrição</h2>
-                <p className="whitespace-pre-line text-night-200">{product.description}</p>
+              <div className="mt-10 border-t border-night-100 pt-6">
+                <h2 className="mb-2 font-semibold text-night-900">Descrição</h2>
+                <p className="whitespace-pre-line text-night-700">{product.description}</p>
               </div>
             )}
           </div>

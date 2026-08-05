@@ -7,8 +7,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // brand e accent são dirigidos por variáveis CSS (padrão = dourado
-        // Clube da Estampa, em globals.css). Parceiros sobrescrevem por subdomínio.
+        // "brand" é dirigido por variáveis CSS (padrão = Azul Clube da Estampa,
+        // definido em globals.css). Seções trocam via .accent-* e parceiros
+        // sobrescrevem por subdomínio (tema white-label).
         brand: {
           50: 'rgb(var(--brand-50) / <alpha-value>)',
           100: 'rgb(var(--brand-100) / <alpha-value>)',
@@ -21,12 +22,18 @@ const config: Config = {
           800: 'rgb(var(--brand-800) / <alpha-value>)',
           900: 'rgb(var(--brand-900) / <alpha-value>)',
         },
+        // Cores de assinatura fixas (sempre disponíveis, independem da seção).
+        pink: colors.pink,
+        blue: colors.blue,
+        yellow: colors.yellow,
         night: colors.night,
         accent: 'rgb(var(--accent) / <alpha-value>)',
+        ink: colors.ink,
+        paper: colors.paper,
         silver: colors.silver,
-        surface: '#111111',
-        'surface-light': '#181818',
-        'background-secondary': '#0B0B0B',
+        surface: '#ffffff',
+        'surface-light': '#f5f6f7',
+        'background-secondary': '#f7f7f8',
         danger: colors.danger,
         success: colors.success,
         warning: colors.warning,
@@ -36,7 +43,12 @@ const config: Config = {
         display: ['var(--font-display)', 'var(--font-sans)', 'sans-serif'],
       },
       boxShadow: {
-        gold: '0 0 0 1px rgba(200,154,43,0.35), 0 8px 30px -12px rgba(200,154,43,0.45)',
+        // "gold" mantém o nome por compatibilidade, mas agora é uma sombra "pop".
+        gold: '0 10px 24px -12px rgba(17,17,20,0.35)',
+        pop: '0 12px 30px -14px rgba(17,17,20,0.4)',
+        // Sombra dura estilo adesivo/sticker (deslocada, preta).
+        sticker: '5px 6px 0 0 #111114',
+        'sticker-sm': '3px 4px 0 0 #111114',
       },
     },
   },

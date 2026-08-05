@@ -5,19 +5,39 @@
 :root {
   color-scheme: light;
 
-  /* Escala "brand" padrão (Dourado Clube da Estampa) em canais RGB.
-     Parceiros sobrescrevem estes valores por subdomínio (tema white-label). */
-  --brand-50: 251 246 233;
-  --brand-100: 247 235 199;
-  --brand-200: 242 210 122;
-  --brand-300: 230 192 90;
-  --brand-400: 217 174 63;
-  --brand-500: 200 154 43;
-  --brand-600: 168 127 32;
-  --brand-700: 134 100 26;
-  --brand-800: 94 71 18;
-  --brand-900: 61 46 11;
-  --accent: 200 154 43;
+  /* Escala "brand" padrão (Azul Clube da Estampa) em canais RGB.
+     Seções trocam com .accent-*; parceiros sobrescrevem por subdomínio. */
+  --brand-50: 238 246 254;
+  --brand-100: 221 237 254;
+  --brand-200: 187 219 252;
+  --brand-300: 141 193 250;
+  --brand-400: 90 166 248;
+  --brand-500: 43 141 246;
+  --brand-600: 36 118 207;
+  --brand-700: 29 96 167;
+  --brand-800: 21 68 118;
+  --brand-900: 14 45 79;
+  --accent: 43 141 246;
+}
+
+/* ---- Acentos por seção (cor rotativa) ---- */
+.accent-blue {
+  --brand-50: 238 246 254; --brand-100: 221 237 254; --brand-200: 187 219 252;
+  --brand-300: 141 193 250; --brand-400: 90 166 248; --brand-500: 43 141 246;
+  --brand-600: 36 118 207; --brand-700: 29 96 167; --brand-800: 21 68 118;
+  --brand-900: 14 45 79; --accent: 43 141 246;
+}
+.accent-pink {
+  --brand-50: 255 240 243; --brand-100: 255 225 231; --brand-200: 255 195 208;
+  --brand-300: 255 154 176; --brand-400: 255 109 140; --brand-500: 255 68 108;
+  --brand-600: 214 57 91; --brand-700: 173 46 73; --brand-800: 122 33 52;
+  --brand-900: 82 22 35; --accent: 255 68 108;
+}
+.accent-yellow {
+  --brand-50: 255 251 235; --brand-100: 255 247 215; --brand-200: 254 238 176;
+  --brand-300: 253 226 121; --brand-400: 253 214 62; --brand-500: 252 202 7;
+  --brand-600: 212 170 6; --brand-700: 171 137 5; --brand-800: 121 97 3;
+  --brand-900: 81 65 2; --accent: 252 202 7;
 }
 
 html {
@@ -28,76 +48,66 @@ body {
   min-height: 100dvh;
 }
 
+/* ---- Título estilo "adesivo" (contorno preto + fill branco) ---- */
+.sticker-text {
+  color: #ffffff;
+  -webkit-text-stroke: 0.055em #111114;
+  paint-order: stroke fill;
+  text-shadow: 0.04em 0.055em 0 #111114;
+}
+/* Variante com fill escuro sobre fundo colorido, mantendo o contorno. */
+.sticker-ink {
+  color: #111114;
+  -webkit-text-stroke: 0.05em #111114;
+  paint-order: stroke fill;
+  text-shadow: 0.035em 0.05em 0 rgba(17, 17, 20, 0.25);
+}
+
+/* ---- Três faixas de cor da marca ---- */
+.brand-stripes {
+  background: linear-gradient(
+    90deg,
+    #ff446c 0 33.333%,
+    #2b8df6 0 66.666%,
+    #fcca07 0 100%
+  );
+}
+.brand-stripes-h {
+  background: linear-gradient(
+    180deg,
+    #ff446c 0 33.333%,
+    #2b8df6 0 66.666%,
+    #fcca07 0 100%
+  );
+}
+
 /* ---- Brand motion (Clube da Estampa) ---- */
 @keyframes kof-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
 }
-
-@keyframes kof-glow {
-  0%,
-  100% {
-    opacity: 0.22;
-    transform: translateX(-50%) scale(1);
-  }
-  50% {
-    opacity: 0.42;
-    transform: translateX(-50%) scale(1.12);
-  }
+@keyframes kof-pop {
+  0% { transform: scale(0.94) rotate(-2deg); opacity: 0; }
+  60% { transform: scale(1.03) rotate(1deg); }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
 }
-
 @keyframes kof-sweep {
-  0% {
-    transform: translateX(-140%) skewX(-14deg);
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(240%) skewX(-14deg);
-    opacity: 0;
-  }
+  0% { transform: translateX(-140%) skewX(-14deg); opacity: 0; }
+  25% { opacity: 0.5; }
+  100% { transform: translateX(240%) skewX(-14deg); opacity: 0; }
 }
 
-.kof-fade-up {
-  opacity: 0;
-  animation: kof-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-.kof-d1 {
-  animation-delay: 0.08s;
-}
-.kof-d2 {
-  animation-delay: 0.16s;
-}
-.kof-d3 {
-  animation-delay: 0.24s;
-}
-.kof-d4 {
-  animation-delay: 0.32s;
-}
-.kof-d5 {
-  animation-delay: 0.4s;
-}
-
-.kof-glow {
-  animation: kof-glow 6.5s ease-in-out infinite;
-}
-
-.kof-sweep {
-  animation: kof-sweep 7.5s ease-in-out infinite;
-}
+.kof-fade-up { opacity: 0; animation: kof-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.kof-pop { opacity: 0; animation: kof-pop 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.kof-d1 { animation-delay: 0.08s; }
+.kof-d2 { animation-delay: 0.16s; }
+.kof-d3 { animation-delay: 0.24s; }
+.kof-d4 { animation-delay: 0.32s; }
+.kof-d5 { animation-delay: 0.4s; }
+.kof-sweep { animation: kof-sweep 7.5s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
-  .kof-fade-up,
-  .kof-glow,
-  .kof-sweep {
+  .kof-fade-up, .kof-pop, .kof-sweep {
     animation: none;
     opacity: 1;
   }

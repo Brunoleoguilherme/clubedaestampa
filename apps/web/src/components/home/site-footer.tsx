@@ -46,7 +46,7 @@ export function SiteFooter() {
   const brandName = brand.name
   const description = isPartner
     ? (brand.tagline ?? `Loja oficial ${brand.name}.`)
-    : 'Estampas autorais em vestuário premium. Coleções que falam a sua língua.'
+    : 'Estampas autorais que falam a sua língua — do esporte à cultura pop.'
 
   const socials: Array<{ Icon: typeof Instagram; href: string }> = isPartner
     ? (
@@ -59,7 +59,8 @@ export function SiteFooter() {
     : [Instagram, Facebook, Youtube].map((Icon) => ({ Icon, href: '/' }))
 
   return (
-    <footer className="border-t border-white/10 bg-[#0B0B0B]">
+    <footer className="bg-night-900 text-white">
+      <div aria-hidden className="brand-stripes h-1.5 w-full" />
       <div className="mx-auto max-w-[1440px] px-6 py-14 sm:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
           <div className="lg:col-span-2">
@@ -75,7 +76,7 @@ export function SiteFooter() {
             ) : (
               <span className="font-display text-2xl font-extrabold uppercase tracking-tight">
                 <span className="text-white">CLUBE DA </span>
-                <span className="text-brand-500">ESTAMPA</span>
+                <span className="text-yellow-400">ESTAMPA</span>
               </span>
             )}
             <p className="mt-3 max-w-xs text-sm text-night-300">{description}</p>
@@ -88,7 +89,7 @@ export function SiteFooter() {
                     target={isPartner ? '_blank' : undefined}
                     rel="noopener noreferrer"
                     aria-label="Rede social"
-                    className="rounded-full border border-white/10 p-2 text-night-200 transition-colors hover:border-brand-500/60 hover:text-brand-500"
+                    className="rounded-full border border-white/15 p-2 text-white/80 transition-colors hover:border-yellow-400 hover:text-yellow-400"
                   >
                     <Icon className="h-4 w-4" aria-hidden />
                   </a>
@@ -103,7 +104,7 @@ export function SiteFooter() {
               <ul className="space-y-2 text-sm text-night-300">
                 {SPORTS.map((s) => (
                   <li key={s.slug}>
-                    <Link href={sportHref(s.name)} className="transition-colors hover:text-brand-500">
+                    <Link href={sportHref(s.name)} className="transition-colors hover:text-white">
                       {s.name}
                     </Link>
                   </li>
@@ -118,7 +119,7 @@ export function SiteFooter() {
               <ul className="space-y-2 text-sm text-night-300">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <Link href={l.href} className="transition-colors hover:text-brand-500">
+                    <Link href={l.href} className="transition-colors hover:text-white">
                       {l.label}
                     </Link>
                   </li>
@@ -134,7 +135,7 @@ export function SiteFooter() {
             {isPartner && <span className="ml-2 text-night-500">· powered by Clube da Estampa</span>}
           </p>
           <p className="flex items-center gap-2">
-            <Lock className="h-4 w-4 text-brand-500" aria-hidden /> Pagamento seguro • Pix, cartão e boleto
+            <Lock className="h-4 w-4 text-yellow-400" aria-hidden /> Pagamento seguro • Pix, cartão e boleto
           </p>
         </div>
       </div>

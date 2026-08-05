@@ -8,9 +8,9 @@ export default async function EnderecosPage() {
   return (
     <div className="space-y-4">
       <h1 className="font-display text-2xl font-extrabold uppercase tracking-tight">Meus endereços</h1>
-      <div className="rounded-xl border border-white/10 bg-surface p-8 text-center text-night-300">
+      <div className="rounded-xl border border-night-100 bg-white p-8 text-center text-night-600">
         <p>Você ainda não cadastrou endereços.</p>
-        <p className="mt-1 text-sm text-night-400">
+        <p className="mt-1 text-sm text-night-500">
           O endereço de entrega é informado durante o checkout.
         </p>
       </div>

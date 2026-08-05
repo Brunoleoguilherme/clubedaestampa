@@ -18,31 +18,31 @@ export default async function ProdutosPage({ searchParams }: { searchParams: { q
   const products = configured ? (q ? await searchProducts(q, 60) : await listActiveProducts(60)) : []
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-night-900 text-white">
+    <div className="min-h-dvh overflow-x-hidden bg-white text-night-900">
       <AnnouncementBar />
       <SiteHeader />
 
       <main className="mx-auto max-w-[1440px] px-6 pb-20 pt-28 sm:px-8">
-        <div className="flex flex-col gap-6 border-b border-white/10 pb-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-6 border-b border-night-100 pb-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">Catálogo</span>
             <h1 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
               {q ? `Busca: “${q}”` : 'Todos os produtos'}
             </h1>
-            <p className="mt-1 text-sm text-night-300">{products.length} produto(s)</p>
+            <p className="mt-1 text-sm text-night-600">{products.length} produto(s)</p>
           </div>
           <form action="/produtos" className="flex w-full max-w-md items-center gap-2">
             <div className="relative flex-1">
-              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-night-400" aria-hidden />
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-night-500" aria-hidden />
               <input
                 name="q"
                 defaultValue={q}
                 placeholder="Buscar produtos, marcas, SKU…"
                 aria-label="Buscar"
-                className="h-11 w-full rounded-lg border border-white/15 bg-surface pl-9 pr-3 text-sm text-white outline-none placeholder:text-night-500 focus-visible:border-brand-500"
+                className="h-11 w-full rounded-lg border border-night-200 bg-white pl-9 pr-3 text-sm text-night-900 outline-none placeholder:text-night-500 focus-visible:border-brand-500"
               />
             </div>
-            <button className="h-11 rounded-lg bg-brand-500 px-5 text-sm font-semibold uppercase tracking-wide text-night-900 transition-colors hover:bg-brand-400">
+            <button className="h-11 rounded-lg bg-brand-500 px-5 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-400">
               Buscar
             </button>
           </form>
@@ -53,7 +53,7 @@ export default async function ProdutosPage({ searchParams }: { searchParams: { q
             Catálogo indisponível: configure o Supabase (.env.local).
           </p>
         ) : products.length === 0 ? (
-          <p className="py-20 text-center text-night-400">
+          <p className="py-20 text-center text-night-500">
             {q ? 'Nenhum produto encontrado para sua busca.' : 'Nenhum produto publicado ainda.'}
           </p>
         ) : (

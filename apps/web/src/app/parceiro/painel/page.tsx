@@ -80,7 +80,7 @@ export default async function PartnerPanelPage() {
           ) : null}
           <span>Loja oficial · {partner.name}</span>
         </div>
-        <div className="bg-night-900 px-6 py-8 text-white">
+        <div className="bg-white px-6 py-8 text-night-900">
           <h2 className="text-xl font-extrabold" style={{ color: '#fff' }}>
             {partner.tagline || 'Vista as cores do time.'}
           </h2>

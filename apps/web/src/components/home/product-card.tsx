@@ -12,29 +12,29 @@ export function HomeProductCard({ product, badge }: { product: ProductSummary; b
       : 0
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-surface transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-500/50 hover:shadow-gold">
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border-2 border-night-900 bg-white transition-all duration-300 hover:-translate-y-1.5 hover:shadow-sticker">
       {/* favorito */}
       <Link
         href="/conta/favoritos"
         aria-label={`Favoritar ${product.name}`}
-        className="absolute right-3 top-3 z-10 rounded-full bg-black/40 p-2 text-white backdrop-blur transition-colors hover:text-brand-500"
+        className="absolute right-3 top-3 z-10 rounded-full border-2 border-night-900 bg-white p-2 text-night-900 transition-colors hover:text-pink-500"
       >
         <Heart className="h-4 w-4" aria-hidden />
       </Link>
 
       {/* selo */}
       {discount > 0 ? (
-        <span className="absolute left-3 top-3 z-10 rounded bg-brand-500 px-2 py-0.5 text-xs font-bold text-night-900">
+        <span className="absolute left-3 top-3 z-10 rounded-full border-2 border-night-900 bg-pink-500 px-2.5 py-0.5 text-xs font-extrabold text-white">
           -{discount}%
         </span>
       ) : badge === 'novo' ? (
-        <span className="absolute left-3 top-3 z-10 rounded bg-white px-2 py-0.5 text-xs font-bold uppercase text-night-900">
+        <span className="absolute left-3 top-3 z-10 rounded-full border-2 border-night-900 bg-yellow-400 px-2.5 py-0.5 text-xs font-extrabold uppercase text-night-900">
           Novo
         </span>
       ) : null}
 
       <Link href={`/produtos/${product.slug}`} className="flex flex-1 flex-col">
-        <div className="relative aspect-square overflow-hidden bg-night-800">
+        <div className="relative aspect-square overflow-hidden border-b-2 border-night-900 bg-night-50">
           {img ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -52,21 +52,21 @@ export function HomeProductCard({ product, badge }: { product: ProductSummary; b
 
         <div className="flex flex-1 flex-col gap-1 p-4">
           {product.brandName && (
-            <span className="text-xs font-medium uppercase tracking-wide text-night-300">
+            <span className="text-xs font-semibold uppercase tracking-wide text-night-500">
               {product.brandName}
             </span>
           )}
-          <span className="line-clamp-2 text-sm font-semibold text-white">{product.name}</span>
+          <span className="line-clamp-2 text-sm font-bold text-night-900">{product.name}</span>
           <div className="mt-auto pt-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-lg font-bold text-white">{formatBRL(product.priceFromCents)}</span>
+              <span className="text-lg font-extrabold text-night-900">{formatBRL(product.priceFromCents)}</span>
               {discount > 0 && product.compareAtCents && (
                 <span className="text-sm text-night-400 line-through">
                   {formatBRL(product.compareAtCents)}
                 </span>
               )}
             </div>
-            <p className="mt-0.5 text-xs text-night-300">{formatInstallments(product.priceFromCents, 10)}</p>
+            <p className="mt-0.5 text-xs text-night-500">{formatInstallments(product.priceFromCents, 10)}</p>
           </div>
         </div>
       </Link>
@@ -75,7 +75,7 @@ export function HomeProductCard({ product, badge }: { product: ProductSummary; b
       <div className="max-h-0 overflow-hidden px-4 opacity-0 transition-all duration-300 group-hover:max-h-16 group-hover:pb-4 group-hover:opacity-100">
         <Link
           href={`/produtos/${product.slug}`}
-          className="flex h-10 w-full items-center justify-center rounded-lg bg-brand-500 text-sm font-semibold uppercase tracking-wide text-night-900 transition-colors hover:bg-brand-400"
+          className="flex h-10 w-full items-center justify-center rounded-lg border-2 border-night-900 bg-accent text-sm font-extrabold uppercase tracking-wide text-white transition-colors hover:bg-brand-600"
         >
           Ver produto
         </Link>

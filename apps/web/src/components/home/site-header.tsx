@@ -20,7 +20,6 @@ export function SiteHeader() {
   const cartCount = hydrated ? count : 0
   const brand = useBrand()
 
-  // Loja de parceiro: menu enxuto (sem as coleções do Clube da Estampa).
   const navItems = brand.isPartner
     ? [
         { name: 'Produtos', href: '/produtos' },
@@ -41,22 +40,22 @@ export function SiteHeader() {
   }, [])
 
   const icons = (
-    <div className="flex items-center gap-1.5 text-white">
-      <Link href="/produtos" aria-label="Buscar" className="rounded-full p-2 transition-colors hover:text-brand-500">
+    <div className="flex items-center gap-1 text-night-700">
+      <Link href="/produtos" aria-label="Buscar" className="rounded-full p-2 transition-colors hover:text-accent">
         <Search className="h-5 w-5" aria-hidden />
       </Link>
-      <Link href="/conta/favoritos" aria-label="Favoritos" className="rounded-full p-2 transition-colors hover:text-brand-500">
+      <Link href="/conta/favoritos" aria-label="Favoritos" className="rounded-full p-2 transition-colors hover:text-accent">
         <Heart className="h-5 w-5" aria-hidden />
       </Link>
-      <Link href="/carrinho" aria-label="Carrinho" className="relative rounded-full p-2 transition-colors hover:text-brand-500">
+      <Link href="/carrinho" aria-label="Carrinho" className="relative rounded-full p-2 transition-colors hover:text-accent">
         <ShoppingCart className="h-5 w-5" aria-hidden />
         {cartCount > 0 && (
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-500 px-1 text-[10px] font-bold text-night-900">
+          <span className="absolute -right-0.5 -top-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-white">
             {cartCount}
           </span>
         )}
       </Link>
-      <Link href="/conta" aria-label="Minha conta" className="rounded-full p-2 transition-colors hover:text-brand-500">
+      <Link href="/conta" aria-label="Minha conta" className="rounded-full p-2 transition-colors hover:text-accent">
         <User className="h-5 w-5" aria-hidden />
       </Link>
     </div>
@@ -64,8 +63,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-9 z-40 transition-colors duration-300 ${
-        scrolled ? 'bg-[rgba(5,5,5,0.92)] backdrop-blur-md border-b border-white/10' : 'bg-transparent'
+      className={`fixed inset-x-0 top-9 z-40 border-b transition-all duration-300 ${
+        scrolled
+          ? 'border-night-100 bg-white/95 shadow-[0_6px_20px_-14px_rgba(17,17,20,0.5)] backdrop-blur-md'
+          : 'border-transparent bg-white'
       }`}
     >
       <div
@@ -75,10 +76,9 @@ export function SiteHeader() {
       >
         <HeaderLogo />
 
-        {/* nav desktop */}
-        <nav className="hidden items-center gap-5 text-sm font-semibold uppercase tracking-wide text-night-200 lg:flex">
+        <nav className="hidden items-center gap-5 text-sm font-semibold uppercase tracking-wide text-night-600 lg:flex">
           {navItems.map((n) => (
-            <Link key={n.name} href={n.href} className="transition-colors hover:text-brand-500">
+            <Link key={n.name} href={n.href} className="transition-colors hover:text-accent">
               {n.name}
             </Link>
           ))}
@@ -90,31 +90,34 @@ export function SiteHeader() {
             type="button"
             aria-label="Abrir menu"
             onClick={() => setOpen(true)}
-            className="rounded-full p-2 text-white transition-colors hover:text-brand-500 lg:hidden"
+            className="rounded-full p-2 text-night-700 transition-colors hover:text-accent lg:hidden"
           >
             <Menu className="h-6 w-6" aria-hidden />
           </button>
         </div>
       </div>
 
+      {/* faixa de cor da marca */}
+      <div aria-hidden className="brand-stripes h-1 w-full" />
+
       {/* drawer mobile */}
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} aria-hidden />
-          <div className="absolute right-0 top-0 flex h-full w-72 max-w-[85%] flex-col bg-[#0B0B0B] p-6 shadow-2xl">
+          <div className="absolute inset-0 bg-night-900/50" onClick={() => setOpen(false)} aria-hidden />
+          <div className="absolute right-0 top-0 flex h-full w-72 max-w-[85%] flex-col bg-white p-6 shadow-2xl">
             <div className="mb-6 flex items-center justify-between">
-              <span className="font-display text-lg font-extrabold text-white">MENU</span>
-              <button type="button" aria-label="Fechar menu" onClick={() => setOpen(false)} className="text-white">
+              <span className="font-display text-lg font-extrabold uppercase text-night-900">Menu</span>
+              <button type="button" aria-label="Fechar menu" onClick={() => setOpen(false)} className="text-night-700">
                 <X className="h-6 w-6" aria-hidden />
               </button>
             </div>
-            <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wide text-night-200">
+            <nav className="flex flex-col gap-1 text-sm font-semibold uppercase tracking-wide text-night-700">
               {navItems.map((n) => (
                 <Link
                   key={n.name}
                   href={n.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-md px-3 py-2.5 transition-colors hover:bg-white/5 hover:text-brand-500"
+                  className="rounded-md px-3 py-2.5 transition-colors hover:bg-night-50 hover:text-accent"
                 >
                   {n.name}
                 </Link>

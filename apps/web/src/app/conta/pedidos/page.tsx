@@ -90,19 +90,19 @@ export default async function MeusPedidosPage({
       {justPaid && <TrackPurchase orderId={justPaid.id} valueCents={justPaid.total_cents} />}
       <h1 className="font-display text-2xl font-extrabold uppercase tracking-tight">Meus pedidos</h1>
       {rows.length === 0 ? (
-        <div className="rounded-xl border border-white/10 bg-surface p-8 text-center">
-          <p className="text-night-300">Você ainda não tem pedidos.</p>
+        <div className="rounded-xl border border-night-100 bg-white p-8 text-center">
+          <p className="text-night-600">Você ainda não tem pedidos.</p>
           <Link
             href="/produtos"
-            className="mt-3 inline-block rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-night-900 hover:bg-brand-400"
+            className="mt-3 inline-block rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white hover:bg-brand-400"
           >
             Explorar a loja
           </Link>
         </div>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-white/10 bg-surface">
+        <div className="overflow-hidden rounded-xl border border-night-100 bg-white">
           <table className="w-full text-left text-sm">
-            <thead className="bg-white/5 text-night-300">
+            <thead className="bg-night-50 text-night-600">
               <tr>
                 <th className="px-4 py-3 font-medium">Pedido</th>
                 <th className="px-4 py-3 font-medium">Status</th>
@@ -117,7 +117,7 @@ export default async function MeusPedidosPage({
                 const pay = paymentByOrder.get(o.id)
                 const method = pay ? (METHOD_LABEL[pay.method] ?? pay.method) : '—'
                 return (
-                  <tr key={o.id} className="border-t border-white/10">
+                  <tr key={o.id} className="border-t border-night-100">
                     <td className="px-4 py-3 font-medium">
                       <Link href={`/conta/pedidos/${o.id}`} className="text-brand-400 hover:underline">
                         {o.order_number}
@@ -128,9 +128,9 @@ export default async function MeusPedidosPage({
                         {badge.text}
                       </span>
                     </td>
-                    <td className="px-4 py-3 text-night-200">{method}</td>
-                    <td className="px-4 py-3 font-semibold text-white">{formatBRL(o.total_cents)}</td>
-                    <td className="px-4 py-3 text-night-400">
+                    <td className="px-4 py-3 text-night-700">{method}</td>
+                    <td className="px-4 py-3 font-semibold text-night-900">{formatBRL(o.total_cents)}</td>
+                    <td className="px-4 py-3 text-night-500">
                       {new Date(o.created_at).toLocaleDateString('pt-BR')}
                     </td>
                   </tr>
@@ -140,7 +140,7 @@ export default async function MeusPedidosPage({
           </table>
         </div>
       )}
-      <p className="text-xs text-night-400">
+      <p className="text-xs text-night-500">
         Os pedidos aparecem aqui pelo e-mail informado no checkout ({email}). O status muda para
         “Pago” automaticamente quando o pagamento é confirmado.
       </p>

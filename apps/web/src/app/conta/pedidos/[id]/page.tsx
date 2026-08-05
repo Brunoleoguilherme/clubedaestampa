@@ -119,7 +119,7 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
     <div className="space-y-6">
       <Link
         href="/conta/pedidos"
-        className="inline-flex items-center gap-2 text-sm text-night-300 transition-colors hover:text-brand-400"
+        className="inline-flex items-center gap-2 text-sm text-night-600 transition-colors hover:text-brand-400"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden /> Voltar aos pedidos
       </Link>
@@ -134,13 +134,13 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
       </div>
 
       {/* Rastreio */}
-      <section className="rounded-xl border border-white/10 bg-surface p-6">
-        <h2 className="mb-3 font-semibold text-white">Rastreamento</h2>
+      <section className="rounded-xl border border-night-100 bg-white p-6">
+        <h2 className="mb-3 font-semibold text-night-900">Rastreamento</h2>
         {shipment?.tracking_code ? (
-          <div className="space-y-2 text-sm text-night-200">
+          <div className="space-y-2 text-sm text-night-700">
             <p>
               Transportadora:{' '}
-              <strong className="text-white">
+              <strong className="text-night-900">
                 {shipment.service_name ?? shipment.provider ?? 'Correios'}
               </strong>
             </p>
@@ -151,70 +151,70 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
             {shipment.delivered_at ? (
               <p className="text-success">Entregue em {dt(shipment.delivered_at)}</p>
             ) : shipment.shipped_at ? (
-              <p className="text-night-300">Enviado em {dt(shipment.shipped_at)}</p>
+              <p className="text-night-600">Enviado em {dt(shipment.shipped_at)}</p>
             ) : null}
             <a
               href="https://rastreamento.correios.com.br/app/index.php"
               target="_blank"
               rel="noreferrer"
-              className="mt-2 inline-block rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-night-900 hover:bg-brand-400"
+              className="mt-2 inline-block rounded-lg bg-brand-500 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white hover:bg-brand-400"
             >
               Rastrear nos Correios
             </a>
-            <p className="text-xs text-night-400">Cole o código na página dos Correios para ver o trajeto.</p>
+            <p className="text-xs text-night-500">Cole o código na página dos Correios para ver o trajeto.</p>
           </div>
         ) : (
-          <p className="text-sm text-night-300">
+          <p className="text-sm text-night-600">
             Assim que seu pedido for despachado, o código de rastreio aparece aqui.
           </p>
         )}
       </section>
 
       {/* Linha do tempo */}
-      <section className="rounded-xl border border-white/10 bg-surface p-6">
-        <h2 className="mb-3 font-semibold text-white">Andamento</h2>
+      <section className="rounded-xl border border-night-100 bg-white p-6">
+        <h2 className="mb-3 font-semibold text-night-900">Andamento</h2>
         <ol className="space-y-3">
           {history.map((h, idx) => (
             <li key={idx} className="flex items-start gap-3 text-sm">
               <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-brand-500" aria-hidden />
               <span>
-                <span className="font-medium text-white">{label(h.to_status)}</span>
-                <span className="block text-xs text-night-400">{dt(h.created_at)}</span>
+                <span className="font-medium text-night-900">{label(h.to_status)}</span>
+                <span className="block text-xs text-night-500">{dt(h.created_at)}</span>
               </span>
             </li>
           ))}
           {history.length === 0 && (
-            <li className="text-sm text-night-300">Pedido criado em {dt(order.created_at)}.</li>
+            <li className="text-sm text-night-600">Pedido criado em {dt(order.created_at)}.</li>
           )}
         </ol>
       </section>
 
       {/* Itens + totais */}
-      <section className="rounded-xl border border-white/10 bg-surface p-6">
-        <h2 className="mb-3 font-semibold text-white">Itens</h2>
+      <section className="rounded-xl border border-night-100 bg-white p-6">
+        <h2 className="mb-3 font-semibold text-night-900">Itens</h2>
         <table className="w-full text-left text-sm">
           <tbody>
             {items.map((i, idx) => (
-              <tr key={idx} className="border-b border-white/5">
-                <td className="py-2 text-night-200">
+              <tr key={idx} className="border-b border-night-100">
+                <td className="py-2 text-night-700">
                   {i.quantity}× {i.product_name}
-                  {i.variant_name && <span className="text-night-400"> · {i.variant_name}</span>}
+                  {i.variant_name && <span className="text-night-500"> · {i.variant_name}</span>}
                 </td>
-                <td className="py-2 text-right text-night-200">{formatBRL(i.total_cents)}</td>
+                <td className="py-2 text-right text-night-700">{formatBRL(i.total_cents)}</td>
               </tr>
             ))}
           </tbody>
         </table>
         <dl className="mt-4 space-y-1 text-sm">
-          <div className="flex justify-between text-night-300">
+          <div className="flex justify-between text-night-600">
             <dt>Subtotal</dt>
             <dd>{formatBRL(order.subtotal_cents)}</dd>
           </div>
-          <div className="flex justify-between text-night-300">
+          <div className="flex justify-between text-night-600">
             <dt>Frete</dt>
             <dd>{formatBRL(order.shipping_cents)}</dd>
           </div>
-          <div className="flex justify-between border-t border-white/10 pt-2 text-base font-bold text-white">
+          <div className="flex justify-between border-t border-night-100 pt-2 text-base font-bold text-night-900">
             <dt>Total</dt>
             <dd className="text-brand-400">{formatBRL(order.total_cents)}</dd>
           </div>
@@ -223,9 +223,9 @@ export default async function ClientePedidoPage({ params }: { params: { id: stri
 
       {/* Entrega */}
       {addr && (
-        <section className="rounded-xl border border-white/10 bg-surface p-6">
-          <h2 className="mb-3 font-semibold text-white">Endereço de entrega</h2>
-          <address className="text-sm not-italic text-night-300">
+        <section className="rounded-xl border border-night-100 bg-white p-6">
+          <h2 className="mb-3 font-semibold text-night-900">Endereço de entrega</h2>
+          <address className="text-sm not-italic text-night-600">
             {addr.street}, {addr.number}
             {addr.complement ? ` — ${addr.complement}` : ''}
             <br />

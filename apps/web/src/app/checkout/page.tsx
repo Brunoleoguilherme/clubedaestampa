@@ -24,8 +24,8 @@ interface PixResult {
 }
 
 const inputClass =
-  'h-12 w-full rounded-lg border border-white/15 bg-night-800 px-3 text-base text-white placeholder-night-400 outline-none transition-colors focus:border-brand-500 sm:h-11 sm:text-sm'
-const labelClass = 'mb-1.5 block text-xs font-semibold uppercase tracking-wide text-night-300'
+  'h-12 w-full rounded-lg border border-night-200 bg-night-50 px-3 text-base text-night-900 placeholder-night-400 outline-none transition-colors focus:border-brand-500 sm:h-11 sm:text-sm'
+const labelClass = 'mb-1.5 block text-xs font-semibold uppercase tracking-wide text-night-600'
 
 export default function CheckoutPage() {
   const { items, subtotalCents, hydrated, clear } = useCart()
@@ -245,7 +245,7 @@ export default function CheckoutPage() {
   const empty = hydrated && items.length === 0 && !pix && !info
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-night-900 text-white">
+    <div className="min-h-dvh overflow-x-hidden bg-white text-night-900">
       <AnnouncementBar />
       <SiteHeader />
 
@@ -256,13 +256,13 @@ export default function CheckoutPage() {
 
         {/* Resultado Pix */}
         {pix && (
-          <div className="mt-10 rounded-2xl border border-brand-500/30 bg-surface p-6 sm:p-8">
+          <div className="mt-10 rounded-2xl border border-brand-500/30 bg-white p-6 sm:p-8">
             <div className="flex items-center gap-2 text-brand-400">
               <QrCode className="h-5 w-5" aria-hidden />
               <h2 className="font-display text-xl font-bold uppercase">Pague com Pix</h2>
             </div>
-            <p className="mt-2 text-night-300">
-              Valor: <span className="font-semibold text-white">{formatBRL(pix.amount)}</span>
+            <p className="mt-2 text-night-600">
+              Valor: <span className="font-semibold text-night-900">{formatBRL(pix.amount)}</span>
             </p>
             {pix.qrcodeUrl && (
               <div className="mt-5 inline-block rounded-xl bg-white p-3">
@@ -278,7 +278,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={copyEmv}
-                    className="inline-flex h-11 items-center gap-2 rounded-lg bg-brand-500 px-4 text-sm font-semibold text-night-900 transition-colors hover:bg-brand-400"
+                    className="inline-flex h-11 items-center gap-2 rounded-lg bg-brand-500 px-4 text-sm font-semibold text-white transition-colors hover:bg-brand-400"
                   >
                     {copied ? <Check className="h-4 w-4" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
                     {copied ? 'Copiado' : 'Copiar'}
@@ -286,7 +286,7 @@ export default function CheckoutPage() {
                 </div>
               </div>
             )}
-            <p className="mt-6 text-sm text-night-300">
+            <p className="mt-6 text-sm text-night-600">
               Assim que o pagamento for confirmado, o pedido é atualizado automaticamente. Você pode
               acompanhar em{' '}
               <Link href="/conta/pedidos" className="text-brand-400 hover:underline">
@@ -299,12 +299,12 @@ export default function CheckoutPage() {
 
         {/* Mensagem informativa (ex.: credenciais ainda não cadastradas) */}
         {info && !pix && (
-          <div className="mt-10 rounded-2xl border border-white/15 bg-surface p-6">
+          <div className="mt-10 rounded-2xl border border-night-200 bg-white p-6">
             <h2 className="font-display text-lg font-bold">Pedido registrado</h2>
-            <p className="mt-2 text-night-200">{info}</p>
+            <p className="mt-2 text-night-700">{info}</p>
             <Link
               href="/produtos"
-              className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-brand-500 px-6 text-sm font-semibold uppercase tracking-wide text-night-900 transition-colors hover:bg-brand-400"
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-brand-500 px-6 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-400"
             >
               Voltar à loja
             </Link>
@@ -312,11 +312,11 @@ export default function CheckoutPage() {
         )}
 
         {empty && (
-          <div className="mt-10 rounded-2xl border border-white/10 bg-surface p-8 text-center">
-            <p className="text-night-300">Seu carrinho está vazio.</p>
+          <div className="mt-10 rounded-2xl border border-night-100 bg-white p-8 text-center">
+            <p className="text-night-600">Seu carrinho está vazio.</p>
             <Link
               href="/produtos"
-              className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-brand-500 px-6 text-sm font-semibold uppercase tracking-wide text-night-900 transition-colors hover:bg-brand-400"
+              className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-brand-500 px-6 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-brand-400"
             >
               Explorar a loja
             </Link>
@@ -328,7 +328,7 @@ export default function CheckoutPage() {
           <form onSubmit={handleSubmit} className="mt-10 grid gap-8 lg:grid-cols-[1fr_360px]">
             <div className="space-y-8">
               {/* dados do pagador */}
-              <section className="rounded-2xl border border-white/10 bg-surface p-6">
+              <section className="rounded-2xl border border-night-100 bg-white p-6">
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide">Seus dados</h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   <div className="sm:col-span-2">
@@ -347,7 +347,7 @@ export default function CheckoutPage() {
               </section>
 
               {/* endereço */}
-              <section className="rounded-2xl border border-white/10 bg-surface p-6">
+              <section className="rounded-2xl border border-night-100 bg-white p-6">
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide">Entrega</h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-6">
                   <div className="sm:col-span-2">
@@ -383,7 +383,7 @@ export default function CheckoutPage() {
 
               {/* frete */}
               {shipEnabled && (
-                <section className="rounded-2xl border border-white/10 bg-surface p-6">
+                <section className="rounded-2xl border border-night-100 bg-white p-6">
                   <div className="flex items-center justify-between gap-4">
                     <h2 className="font-display text-lg font-bold uppercase tracking-wide">Frete</h2>
                     <button
@@ -396,7 +396,7 @@ export default function CheckoutPage() {
                       {shipLoading ? 'Calculando…' : 'Calcular frete'}
                     </button>
                   </div>
-                  <p className="mt-2 text-xs text-night-400">
+                  <p className="mt-2 text-xs text-night-500">
                     Preencha o CEP acima e clique em calcular para ver as opções de entrega.
                   </p>
 
@@ -412,20 +412,20 @@ export default function CheckoutPage() {
                             type="button"
                             onClick={() => setShipSel(q)}
                             className={`flex items-center justify-between gap-3 rounded-lg border p-3 text-left transition-colors ${
-                              selected ? 'border-brand-500 bg-brand-500/10' : 'border-white/15 hover:border-white/40'
+                              selected ? 'border-brand-500 bg-brand-500/10' : 'border-night-200 hover:border-night-900'
                             }`}
                           >
                             <span>
                               <span className="block text-sm font-semibold">
                                 {q.company} {q.name}
                               </span>
-                              <span className="block text-xs text-night-300">
+                              <span className="block text-xs text-night-600">
                                 {q.deliveryDays > 0
                                   ? `Prazo estimado: ${q.deliveryDays} dia(s) útil(eis)`
                                   : 'Prazo a confirmar'}
                               </span>
                             </span>
-                            <span className="shrink-0 font-semibold text-white">{formatBRL(q.priceCents)}</span>
+                            <span className="shrink-0 font-semibold text-night-900">{formatBRL(q.priceCents)}</span>
                           </button>
                         )
                       })}
@@ -435,33 +435,33 @@ export default function CheckoutPage() {
               )}
 
               {/* forma de pagamento */}
-              <section className="rounded-2xl border border-white/10 bg-surface p-6">
+              <section className="rounded-2xl border border-night-100 bg-white p-6">
                 <h2 className="font-display text-lg font-bold uppercase tracking-wide">Pagamento</h2>
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   <button
                     type="button"
                     onClick={() => setMethod('pix')}
                     className={`flex items-center gap-3 rounded-lg border p-4 text-left transition-colors ${
-                      method === 'pix' ? 'border-brand-500 bg-brand-500/10' : 'border-white/15 hover:border-white/40'
+                      method === 'pix' ? 'border-brand-500 bg-brand-500/10' : 'border-night-200 hover:border-night-900'
                     }`}
                   >
                     <QrCode className="h-6 w-6 text-brand-400" aria-hidden />
                     <span>
                       <span className="block font-semibold">Pix</span>
-                      <span className="block text-xs text-night-300">Aprovação na hora</span>
+                      <span className="block text-xs text-night-600">Aprovação na hora</span>
                     </span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setMethod('card')}
                     className={`flex items-center gap-3 rounded-lg border p-4 text-left transition-colors ${
-                      method === 'card' ? 'border-brand-500 bg-brand-500/10' : 'border-white/15 hover:border-white/40'
+                      method === 'card' ? 'border-brand-500 bg-brand-500/10' : 'border-night-200 hover:border-night-900'
                     }`}
                   >
                     <CreditCard className="h-6 w-6 text-brand-400" aria-hidden />
                     <span>
                       <span className="block font-semibold">Cartão de crédito</span>
-                      <span className="block text-xs text-night-300">Parcele em até 10x</span>
+                      <span className="block text-xs text-night-600">Parcele em até 10x</span>
                     </span>
                   </button>
                 </div>
@@ -471,23 +471,23 @@ export default function CheckoutPage() {
             </div>
 
             {/* resumo + submit */}
-            <aside className="h-fit rounded-2xl border border-white/10 bg-surface p-6">
+            <aside className="h-fit rounded-2xl border border-night-100 bg-white p-6">
               <h2 className="font-display text-lg font-bold uppercase tracking-wide">Resumo</h2>
               <ul className="mt-4 space-y-3">
                 {items.map((l) => (
                   <li key={l.variantId} className="flex justify-between gap-3 text-sm">
-                    <span className="text-night-200">
+                    <span className="text-night-700">
                       {l.quantity}× {l.name}
                       {l.variantLabel ? ` (${l.variantLabel})` : ''}
                     </span>
-                    <span className="shrink-0 font-semibold text-white">
+                    <span className="shrink-0 font-semibold text-night-900">
                       {formatBRL(l.unitPriceCents * l.quantity)}
                     </span>
                   </li>
                 ))}
               </ul>
               {/* Cupom */}
-              <div className="mt-4 border-t border-white/10 pt-4">
+              <div className="mt-4 border-t border-night-100 pt-4">
                 <span className={labelClass}>Cupom de desconto</span>
                 <div className="flex gap-2">
                   <input
@@ -523,8 +523,8 @@ export default function CheckoutPage() {
                 )}
               </div>
 
-              <div className="mt-4 space-y-2 border-t border-white/10 pt-4 text-sm">
-                <div className="flex justify-between text-night-200">
+              <div className="mt-4 space-y-2 border-t border-night-100 pt-4 text-sm">
+                <div className="flex justify-between text-night-700">
                   <span>Subtotal</span>
                   <span>{formatBRL(subtotalCents)}</span>
                 </div>
@@ -535,27 +535,27 @@ export default function CheckoutPage() {
                   </div>
                 )}
                 {shipEnabled && (
-                  <div className="flex justify-between text-night-200">
+                  <div className="flex justify-between text-night-700">
                     <span>Frete{shipSel ? ` · ${shipSel.company}` : ''}</span>
                     <span>{shipSel ? formatBRL(shippingCents) : 'a calcular'}</span>
                   </div>
                 )}
               </div>
-              <div className="mt-3 flex items-baseline justify-between border-t border-white/10 pt-3">
-                <span className="text-sm uppercase tracking-wide text-night-300">Total</span>
+              <div className="mt-3 flex items-baseline justify-between border-t border-night-100 pt-3">
+                <span className="text-sm uppercase tracking-wide text-night-600">Total</span>
                 <span className="text-2xl font-bold text-brand-500">{formatBRL(totalCents)}</span>
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand-500 text-sm font-semibold uppercase tracking-wide text-night-900 transition-all hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-gold disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-6 flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-brand-500 text-sm font-semibold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-brand-400 hover:shadow-gold disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden />}
                 {loading ? 'Processando…' : method === 'pix' ? 'Gerar Pix' : 'Pagar com cartão'}
               </button>
               <Link
                 href="/carrinho"
-                className="mt-3 flex h-11 w-full items-center justify-center rounded-lg border border-white/15 text-sm font-semibold uppercase tracking-wide text-night-200 transition-colors hover:border-white/40"
+                className="mt-3 flex h-11 w-full items-center justify-center rounded-lg border border-night-200 text-sm font-semibold uppercase tracking-wide text-night-700 transition-colors hover:border-night-900"
               >
                 Voltar ao carrinho
               </Link>

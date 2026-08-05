@@ -14,7 +14,7 @@ const ICONS: Record<CategoryItem['icon'], typeof Trophy> = {
 /** Faixa de coleções logo abaixo do hero. Scroll horizontal no mobile. */
 export function CategoryNavigation() {
   return (
-    <nav aria-label="Coleções" className="border-y border-white/5 bg-[#0B0B0B]">
+    <nav aria-label="Coleções" className="border-y border-night-100 bg-white">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-8">
         <ul className="flex snap-x gap-3 overflow-x-auto py-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:grid lg:grid-cols-6 lg:overflow-visible">
           {SPORTS.map((s) => {
@@ -23,9 +23,9 @@ export function CategoryNavigation() {
               <li key={s.slug} className="snap-start">
                 <Link
                   href={sportHref(s.name)}
-                  className="flex min-w-[150px] items-center justify-center gap-2 rounded-lg border border-white/10 bg-surface px-4 py-3 text-sm font-semibold uppercase tracking-wide text-night-200 transition-all hover:-translate-y-0.5 hover:border-brand-500/60 hover:text-white lg:min-w-0"
+                  className="flex min-w-[150px] items-center justify-center gap-2 rounded-xl border-2 border-night-900 bg-white px-4 py-3 text-sm font-extrabold uppercase tracking-wide text-night-900 transition-all hover:-translate-y-0.5 hover:shadow-sticker-sm lg:min-w-0"
                 >
-                  <Icon className="h-4 w-4 text-brand-500" aria-hidden />
+                  <Icon className="h-4 w-4 text-accent" aria-hidden />
                   {s.name}
                 </Link>
               </li>

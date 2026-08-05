@@ -16,10 +16,10 @@ const IMAGE: Record<string, string> = {
 
 export function SportsGrid() {
   return (
-    <section className="mx-auto max-w-[1440px] px-6 py-16 sm:px-8">
+    <section className="accent-yellow mx-auto max-w-[1440px] px-6 py-16 sm:px-8">
       <div className="mb-8">
-        <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-500">Explore</span>
-        <h2 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight text-white">
+        <span className="text-xs font-extrabold uppercase tracking-[0.3em] text-accent">Explore</span>
+        <h2 className="mt-1 font-display text-3xl font-extrabold uppercase tracking-tight text-night-900">
           Compre por coleção
         </h2>
       </div>
@@ -30,7 +30,7 @@ export function SportsGrid() {
             <Link
               key={s.slug}
               href={sportHref(s.name)}
-              className="group relative flex h-52 items-end overflow-hidden rounded-2xl border border-white/10 transition-all hover:-translate-y-1 hover:border-brand-500/50"
+              className="group relative flex h-52 items-end overflow-hidden rounded-2xl border-2 border-night-900 transition-all hover:-translate-y-1 hover:shadow-sticker"
             >
               {/* imagem de fundo temática */}
               <div
@@ -38,14 +38,14 @@ export function SportsGrid() {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                 style={{ backgroundImage: `url('${IMAGE[s.slug]}')` }}
               />
-              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-night-900 via-night-900/60 to-night-900/10" />
+              <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-night-900 via-night-900/55 to-night-900/5" />
 
               <div className="relative p-6">
                 <span className="flex items-center gap-2 font-display text-2xl font-extrabold uppercase tracking-tight text-white">
-                  <Icon className="h-5 w-5 text-brand-500" aria-hidden />
+                  <Icon className="h-5 w-5 text-yellow-400" aria-hidden />
                   {s.name}
                 </span>
-                <span className="mt-1 flex items-center gap-1 text-sm font-semibold uppercase tracking-wide text-brand-500">
+                <span className="mt-1 flex items-center gap-1 text-sm font-extrabold uppercase tracking-wide text-yellow-400">
                   Ver produtos
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
                 </span>
