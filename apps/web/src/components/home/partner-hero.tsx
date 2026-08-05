@@ -55,7 +55,7 @@ export function PartnerHero({
               className="max-w-md text-base font-medium text-white sm:text-lg"
               style={{ textShadow: '0 1px 6px rgba(17,17,20,0.55)' }}
             >
-              Produtos oficiais e coleção do time, com entrega para todo o Brasil.
+              Produtos e coleção oficiais, com entrega para todo o Brasil.
             </p>
             <Link
               href="/produtos"

@@ -85,7 +85,7 @@ export default async function PartnerPanelPage() {
             className="font-display text-2xl font-extrabold uppercase tracking-tight text-white"
             style={{ textShadow: '0 1px 4px rgba(17,17,20,0.4)' }}
           >
-            {partner.tagline || 'Vista as cores do time.'}
+            {partner.tagline || 'Vista as cores da marca.'}
           </h2>
           <span
             className="mt-3 inline-block rounded-lg border-2 border-night-900 px-5 py-2 text-sm font-bold"

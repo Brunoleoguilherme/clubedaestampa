@@ -43,7 +43,7 @@ export function ProductsManager({
       <div>
         <h3 className="mb-2 font-semibold">Produtos exclusivos deste parceiro</h3>
         <p className="mb-3 text-sm text-night-500">
-          Aparecem só na vitrine deste parceiro (ex.: camisa oficial do time).
+          Aparecem só na vitrine deste parceiro (ex.: camisa oficial do parceiro).
         </p>
         {exclusives.length === 0 ? (
           <p className="text-sm text-night-500">Nenhum produto exclusivo ainda.</p>

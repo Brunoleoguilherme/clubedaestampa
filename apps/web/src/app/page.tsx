@@ -20,7 +20,7 @@ export default async function HomePage() {
   const maisVendidos = configured ? await listSectionProducts('mais_vendidos', 4) : []
   const partner = await getActivePartner()
 
-  // Loja de parceiro: página enxuta com a marca do time.
+  // Loja de parceiro: página enxuta com a marca do parceiro.
   if (partner) {
     return (
       <div className="overflow-x-hidden bg-white text-night-900">

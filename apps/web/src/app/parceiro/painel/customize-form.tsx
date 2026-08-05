@@ -33,7 +33,7 @@ export function CustomizeForm({ initial: p }: { initial: CustomizeInitial }) {
       </div>
       <div>
         <Label htmlFor="tagline">Frase de destaque</Label>
-        <Input id="tagline" name="tagline" defaultValue={p.tagline} placeholder="Vista as cores do time." />
+        <Input id="tagline" name="tagline" defaultValue={p.tagline} placeholder="Ex.: Vista as cores da sua marca." />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <ColorField name="primaryColor" label="Cor primária" defaultValue={p.primaryColor || '#1e3a8a'} />
