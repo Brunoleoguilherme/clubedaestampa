@@ -9,7 +9,6 @@ import { CategoryNavigation } from '@/components/home/category-navigation'
 import { BenefitsStrip } from '@/components/home/benefits-strip'
 import { ProductSection } from '@/components/home/product-section'
 import { SportsGrid } from '@/components/home/sports-grid'
-import { BrandsStrip } from '@/components/home/brands-strip'
 import { NewsletterSection } from '@/components/home/newsletter-section'
 import { SiteFooter } from '@/components/home/site-footer'
 
@@ -89,7 +88,6 @@ export default async function HomePage() {
           accent="blue"
         />
 
-        <BrandsStrip />
         <NewsletterSection />
       </main>
 
